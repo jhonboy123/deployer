@@ -1,0 +1,73 @@
+async function GetMyMiners() {
+    try {
+        var miners;
+        miners = await contractCro.methods.getMyMiners(account).call();
+
+        return miners;
+    }
+    catch (error) {
+        console.log(error);
+        return 0;
+    }
+}
+
+async function GetMyRewards() {
+    try {
+        var rewards;
+        rewards = await contractCro.methods.aeonRewards(account).call();
+        rewards = web3.utils.fromWei(rewards.toString());
+
+        return rewards;
+    }
+    catch (error) {
+        console.log(error);
+        return 0;
+    }
+}
+
+async function Deposit() {
+    const urlParams = new URLSearchParams(window.location.search);
+    var ref = urlParams.get('ref');
+    if (ref === undefined || ref == null) {
+        ref = "0x0000000000000000000000000000000000000000";
+    }
+
+    var val = $("#input-invest").val();
+    val = web3.utils.toWei(val);
+    await contract.methods.buyAeon(ref)
+        .send({ from: account, value: val })
+        .on("receipt", function (receipt) {
+            LoadBalances();
+        })
+        .catch("error", function (error) {
+            alert(error.message);
+        });
+}
+
+async function Compound() {
+    const urlParams = new URLSearchParams(window.location.search);
+    var ref = urlParams.get('ref');
+    if (ref === undefined || ref == null) {
+        ref = "0x0000000000000000000000000000000000000000";
+    }
+
+    await contract.methods.compoundAeons(ref)
+        .send({ from: account})
+        .on("receipt", function (receipt) {
+            LoadBalances();
+        })
+        .catch("error", function (error) {
+            alert(error.message);
+        });
+}
+
+async function Withdraw() {
+    await contract.methods.sellAeon()
+        .send({ from: account })
+        .on("receipt", function (receipt) {
+            LoadBalances();
+        })
+        .catch("error", function (error) {
+            alert(error.message);
+        });
+}

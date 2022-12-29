@@ -1,0 +1,136 @@
+const rpcs = {
+    Ethereum: {
+        chainid: 1,
+        url: "https://mainnet.infura.io/v3/",
+        symbol: "ETH",
+        img: "eth.png",
+        rpcToAdd: {
+            chainId: '0x1',
+            chainName: 'Ethereum Mainnet',
+            nativeCurrency: {
+                name: 'Ethereum',
+                symbol: 'ETH',
+                decimals: 18
+            },
+            blockExplorerUrls: ['https://etherscan.io'],
+            rpcUrls: ['https://mainnet.infura.io/v3/'],
+        }
+    },
+    BSC: {
+        chainid: 56,
+        url: "https://bsc-dataseed.binance.org/",
+        symbol: "BNB",
+        img: "bsc.png",
+        rpcToAdd: {
+            chainId: '0x1',
+            chainName: 'Ethereum Mainnet',
+            nativeCurrency: {
+                name: 'Ethereum',
+                symbol: 'ETH',
+                decimals: 18
+            },
+            blockExplorerUrls: ['https://etherscan.io'],
+            rpcUrls: ['https://mainnet.infura.io/v3/'],
+        }
+    },
+    Polygon: {
+        chainid: 137,
+        url: "https://polygon-rpc.com/",
+        symbol: "MATIC",
+        img: "poly.png",
+        rpcToAdd: {
+            chainId: '0x1',
+            chainName: 'Ethereum Mainnet',
+            nativeCurrency: {
+                name: 'Ethereum',
+                symbol: 'ETH',
+                decimals: 18
+            },
+            blockExplorerUrls: ['https://etherscan.io'],
+            rpcUrls: ['https://mainnet.infura.io/v3/'],
+        }
+    },
+    Avax: {
+        chainid: 43114,
+        url: "https://api.avax.network/ext/bc/C/rpc",
+        symbol: "AVAX",
+        img: "avax.png",
+        rpcToAdd: {
+            chainId: '0x1',
+            chainName: 'Ethereum Mainnet',
+            nativeCurrency: {
+                name: 'Ethereum',
+                symbol: 'ETH',
+                decimals: 18
+            },
+            blockExplorerUrls: ['https://etherscan.io'],
+            rpcUrls: ['https://mainnet.infura.io/v3/'],
+        }
+    },
+    Cronos: {
+        chainid: 25,
+        url: "https://rpc.nebkas.ro/",
+        symbol: "CRO",
+        img: "cro.png",
+        rpcToAdd: {
+            chainId: '0x19',
+            chainName: 'Cronos Mainnet',
+            nativeCurrency: {
+                name: 'Cronos',
+                symbol: 'CRO',
+                decimals: 18
+            },
+            blockExplorerUrls: ['https://cronoscan.com/'],
+            rpcUrls: ['https://rpc.nebkas.ro/']
+        }
+    }
+}
+
+const ca = "0x10963e3018F6a235B40e030608da0024aaF0Dea4";
+const abi = [{ "inputs": [{ "internalType": "address", "name": "dev", "type": "address" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "address", "name": "_old", "type": "address" }, { "indexed": false, "internalType": "address", "name": "_new", "type": "address" }], "name": "RecAddressUpdated", "type": "event" }, { "inputs": [{ "internalType": "address", "name": "adr", "type": "address" }], "name": "aeonRewards", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "ref", "type": "address" }], "name": "buyAeon", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "eth", "type": "uint256" }, { "internalType": "uint256", "name": "contractBalance", "type": "uint256" }], "name": "calculateAeonBuy", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "eth", "type": "uint256" }], "name": "calculateAeonBuySimple", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "aeons", "type": "uint256" }], "name": "calculateAeonSell", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "ref", "type": "address" }], "name": "compoundAeons", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "adr", "type": "address" }], "name": "getAeonsSinceLastCompound", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "getBalance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "adr", "type": "address" }], "name": "getMyAeons", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "adr", "type": "address" }], "name": "getMyMiners", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "seedMarket", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [], "name": "sellAeon", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "uniqueUsers", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "newAddress", "type": "address" }], "name": "updateRecAddress", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+var web3 = new Web3(Web3.givenProvider);
+var web3cro = new Web3(new Web3.providers.HttpProvider(rpcs.Cronos.url));
+var contract;
+var contractCro;
+var account = "";
+var userBalancesTot = 0;
+
+async function Init() {
+    contract = new web3.eth.Contract(abi, ca);
+    contractCro = new web3cro.eth.Contract(abi, ca);
+}
+
+Init();
+
+async function LoadBalances() {
+    try {
+        var cBalance = await web3cro.eth.getBalance(ca);
+        cBalance = web3.utils.fromWei(cBalance);
+        cBalance = Math.round((Number(cBalance) + Number.EPSILON) * 1000) / 1000;
+
+        var users = await contractCro.methods.uniqueUsers().call();
+
+        if (account !== "") {
+            var uBalance = await web3cro.eth.getBalance(account);
+            uBalance = web3.utils.fromWei(uBalance);
+            userBalancesTot = uBalance;
+            uBalance = Math.round((Number(uBalance) + Number.EPSILON) * 1000) / 1000;
+            
+            var aeon = await GetMyMiners();
+            var rewards = await GetMyRewards();
+            rewards = Math.round((Number(rewards) + Number.EPSILON) * 1000) / 1000;
+
+            $("#userBalance1").text(uBalance + " CRO");
+            $("#userBalance2").text("CRO Balance: "+uBalance);
+            $("#userAeon").text(aeon);
+            $("#input-rewards").val(rewards);
+            $("#input-ref1").val(`https://eternity-revamp.vercel.app/?ref=${account}`);
+            $("#input-ref2").val(`https://eternity-revamp.vercel.app/?ref=${account}`);
+        }
+
+        $("#contractBalance1").text(cBalance + " CRO");
+        $("#users1").text(users);
+        $("#users2").text(users);
+    }
+    catch (error) { console.log(error);}
+}
